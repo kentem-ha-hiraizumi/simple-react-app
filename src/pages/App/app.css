@@ -1,0 +1,33 @@
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: royalblue;
+}
+
+h2 {
+  text-align: center;
+  color: darkslategray;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  button {
+    background-color: lightseagreen;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.4rem;
+    color: white;
+    padding: 0.5rem 1rem;
+  }
+
+  input {
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    width: 300px;
+  }
+}
