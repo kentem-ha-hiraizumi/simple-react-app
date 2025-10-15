@@ -5,7 +5,7 @@ import { defineConfig } from "vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/simple-react-app/",
+  base: "/simple-react-app/", // リポジトリ名
   test: {
     globals: true,
     includeSource: ["src/**/*.{ts,tsx}"],

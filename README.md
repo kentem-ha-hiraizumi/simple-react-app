@@ -8,7 +8,7 @@ React + TypeScript + Vite を用いたシンプルなフロントエンドアプ
 
 - [React](https://react.dev/) 19.x
 - [TypeScript](https://www.typescriptlang.org/) 5.x
-- [Vite](https://vitejs.dev/) 6.x
+- [Vite](https://vitejs.dev/) 7.x
 - [Biome](https://biomejs.dev/) 2.x（コードリント・フォーマット）
 - [Vitest](https://vitest.dev/) 3.x（ユニットテスト）
 
