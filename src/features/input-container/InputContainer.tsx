@@ -7,11 +7,12 @@ export const InputContainer = () => {
 
   return (
     <>
-      <h2>{displayText}</h2>
-      <div className="input-container">
-        <input type="text" ref={inputRef} />
+      <h2 className="text-xl text-orange-700 font-bold">{displayText}</h2>
+      <div className="flex gap-4">
+        <input type="text" ref={inputRef} className="border-2 border-slate-500 rounded" />
         <button
           type="button"
+          className="bg-slate-700 text-white px-4 py-2 rounded"
           onClick={() => {
             setInputValue(inputRef.current?.value ?? "");
           }}
