@@ -5,22 +5,26 @@ export const InputContainer = () => {
   const { setInputValue } = useInputAtom();
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const onSubmit = (data: FormData) => {
+    const formData = Object.fromEntries(data.entries());
+
+    setInputValue(formData.title as string);
+  };
+
   return (
-    <div className="flex gap-4">
+    <form className="flex gap-4" action={onSubmit}>
       <input
+        name="title"
         type="text"
         ref={inputRef}
         className="p-2 border-2 border-slate-500 rounded"
       />
       <button
-        type="button"
+        type="submit"
         className="px-4 py-2 bg-slate-700 text-white rounded"
-        onClick={() => {
-          setInputValue(inputRef.current?.value ?? "");
-        }}
       >
         Submit
       </button>
-    </div>
+    </form>
   );
 };
