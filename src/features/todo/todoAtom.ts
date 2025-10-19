@@ -21,6 +21,11 @@ export const useTodoAtom = () => {
   const removeTodo = (id: string) => {
     setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
+  const setCompleted = (id: string, completed: boolean) => {
+    setTodos((prevTodos) =>
+      prevTodos.map((todo) => (todo.id === id ? { ...todo, completed } : todo)),
+    );
+  };
 
-  return { todos, addTodo, removeTodo };
+  return { todos, addTodo, removeTodo, setCompleted };
 };

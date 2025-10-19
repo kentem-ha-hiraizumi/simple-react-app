@@ -17,7 +17,7 @@ export const TodoForm = () => {
       action={onSubmit}
     >
       <label>
-        ToDo Title*
+        名前
         <input
           type="text"
           name="title"
@@ -27,7 +27,7 @@ export const TodoForm = () => {
         />
       </label>
       <label>
-        ToDo EndAt
+        期日
         <input
           type="date"
           name="endAt"
@@ -38,7 +38,7 @@ export const TodoForm = () => {
         type="submit"
         className="mt-4 px-4 py-2 w-full cursor-pointer bg-teal-600 text-white rounded hover:bg-teal-700"
       >
-        Add ToDo
+        ToDoを追加
       </button>
     </form>
   );
