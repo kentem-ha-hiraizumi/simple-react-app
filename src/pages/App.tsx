@@ -1,4 +1,4 @@
-import { InputContainer } from "../../features/input-container/InputContainer";
+import { InputContainer } from "../features/input-container/InputContainer";
 
 export const App = () => {
   return (
