@@ -1,9 +1,7 @@
-import { useRef } from "react";
 import { useInputAtom } from "./inputAtom";
 
 export const InputContainer = () => {
   const { setInputValue } = useInputAtom();
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const onSubmit = (data: FormData) => {
     const formData = Object.fromEntries(data.entries());
@@ -16,7 +14,6 @@ export const InputContainer = () => {
       <input
         name="title"
         type="text"
-        ref={inputRef}
         className="p-2 border-2 border-slate-500 rounded"
       />
       <button
