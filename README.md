@@ -9,16 +9,21 @@ React + TypeScript + Vite を用いたシンプルなフロントエンドアプ
 - [React](https://react.dev/) 19.x
 - [TypeScript](https://www.typescriptlang.org/) 5.x
 - [Vite](https://vitejs.dev/) 7.x
+- [Tailwind CSS](https://tailwindcss.com/) 4.x（CSS フレームワーク）
+- [Jotai](https://jotai.org/) 2.x（状態管理）
 - [Biome](https://biomejs.dev/) 2.x（コードリント・フォーマット）
 - [Vitest](https://vitest.dev/) 3.x（ユニットテスト）
 
-## ディレクトリ構成（一部抜粋）
+## ディレクトリ構成
 
 ```
-src/                アプリケーション本体
-  features/         機能別ディレクトリ
-  pages/            画面構成
-public/             公開用静的ファイル
+src/
+  features/         機能別コンポーネント
+  pages/            ページコンポーネント
+  app.css           グローバルスタイル（Tailwind CSS）
+  main.tsx          エントリーポイント
+  vite-env.d.ts     Vite型定義
+public/             静的ファイル
 ```
 
 ## 主な npm scripts
