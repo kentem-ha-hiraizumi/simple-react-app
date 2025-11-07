@@ -28,6 +28,95 @@ JavaScript 内で HTML のような構文を書ける記法
 - `className`など、HTML とは一部異なる属性名を使用
 - `{}`内で JavaScript の式を埋め込める
 
+### TypeScript 基礎
+
+#### 展開する系
+
+```ts
+// 配列
+
+const array1 = [1, 2, 3];
+const array2 = [array, 4, 5];
+// -> [[1, 2, 3], 4, 5]
+// -> 多分意図してない形
+const array2fix = [...array, 4, 5];
+// -> [1, 2, 3, 4, 5]
+
+// objectでもできる
+
+const obj1 = { foo: "bar", x: 42 };
+const obj2 = { bar: "baz", y: 13 };
+
+const mergedObj = { ...obj1, ...obj2 };
+// { foo: "bar", x: 42, bar: "baz", y: 13 }
+
+// 条件付きで要素を追加するとか
+
+const fruits = {
+  apple: 10,
+  banana: 5,
+  ...(isSummer ? { watermelon: 30 } : {}), // isSumerがtrueの時だけwatermelonが追加される
+};
+```
+
+#### 関数
+
+```ts
+// 関数宣言
+function Fun1() {}
+
+// アロー関数式（無名）
+() => {};
+
+// アロー関数式を変数に代入
+const Fun2 = () => {};
+
+// 関数を引数として受け取る  ↓は無名関数ではなく関数の型
+function ReceiveFun(fun: () => void) {
+  fun();
+}
+
+// 渡し方
+ReceiveFun(Fun1);
+ReceiveFun(Fun2);
+ReceiveFun(() => {});
+```
+
+#### テンプレートリテラル
+
+```ts
+const a = "a";
+const b = "b";
+
+const str1 = "123" + a + "456" + b + "789";
+const str2 = `123${a}456${b}789`;
+// -> どちらも 123a456b789
+
+const str3 = `test
+test
+test`;
+// 改行が保持される
+```
+
+#### JSON の注意
+
+JSON には Date 型がないため、JSON を介すと文字列になってしまう
+-> 特定のフォーマットの文字列にするか、unix time にするか、文字列を再度 Date 型に戻すなどの対応が必要
+-> (Date 型のままだと面倒なのでそれ以外が良さげ)
+
+```ts
+const obj = {
+  date: new Date(),
+};
+
+const objString = JSON.stringify(obj);
+
+console.log(JSON.parse(objString));
+// -> {
+//  "date": "2025-10-30T07:25:12.697Z"
+//}
+```
+
 ### React 記法基礎
 
 #### JSX の構造
@@ -173,6 +262,28 @@ const Component = () => {
       </button>
     </>
   );
+};
+```
+
+#### state の遅延初期化
+
+- useState の初期値には、関数を渡すことができる
+- 複雑な処理を行ってから初期値の設定をすることが可能
+- また、この計算は最初のレンダリング時のみに行われる特性があるため、重い処理がある場合もこのように初期化することが多い
+
+```ts
+const [name, setName] = useState(() => {
+  const myName = "abc";
+  return myName;
+});
+
+/// 以下も同じ
+
+const [name, setName] = useState(getName);
+
+const getMyName = () => {
+  const myName = "abc";
+  return myName;
 };
 ```
 
