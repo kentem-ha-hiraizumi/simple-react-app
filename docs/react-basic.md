@@ -265,6 +265,53 @@ const Component = () => {
 };
 ```
 
+#### stateで前の値を利用する
+
+```tsx
+const Component = () => {
+  //     状態   更新用関数
+  const [name, setName] = useState("init name");
+
+  return (
+    <>
+      <p>{name}</p>
+      <button
+        onClick={() => {
+          setName((prev) => `${prev} 123`); // ボタンクリックするたびに後ろに123を付ける
+        }}
+      >
+        update
+      </button>
+    </>
+  );
+};
+```
+
+#### 更新用関数テク
+
+- 前の値を使う場合、更新用関数に関数を渡す
+- 値を返すことが求められるので、一般的には式で書かれるが、returnすれば文でもいい
+
+```ts
+// 式1
+setName((prev) => `${prev} 123`);
+
+// 式2
+setName((prev) => (`${prev} 123`));
+
+// 文1
+setName((prev) => {
+  // ここで変数を準備したりほかの処理もしていい
+  return `${prev} 123`;
+});
+
+// 文2
+setName((prev) => {
+  const str = `${prev} 123`
+  return str;
+});
+```
+
 #### state の遅延初期化
 
 - useState の初期値には、関数を渡すことができる
